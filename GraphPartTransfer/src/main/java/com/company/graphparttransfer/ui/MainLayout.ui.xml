@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<?xdevuiml version="1.0"?>
+<?template NONE?>
+<?import com.company.graphparttransfer.model.Client?>
+<?import com.company.graphparttransfer.model.client.Product?>
+<?import com.vaadin.flow.component.button.Button?>
+<?import com.vaadin.flow.component.grid.Grid?>
+<?import com.vaadin.flow.component.html.Div?>
+<?import com.vaadin.flow.component.html.H2?>
+<?import com.vaadin.flow.component.html.H3?>
+<?import com.vaadin.flow.component.orderedlayout.HorizontalLayout?>
+<?import com.vaadin.flow.component.orderedlayout.VerticalLayout?>
+<?import com.vaadin.flow.component.splitlayout.SplitLayout?>
+<?import com.vaadin.flow.component.upload.Upload?>
+<VerticalLayout xmlns:x="http://xml.xdev-software.com/xdevuiml" spacing="false" x:name="MainLayout" padding="false" x:route="">
+    <x:constraints zpos="0" width="100%" height="100%" />
+    <HorizontalLayout x:name="objHeader" padding="true">
+        <x:constraints width="-1px" height="-1px" flex-grow="0.0" />
+        <H2 x:name="h2" text="Export and import parts of a storage ">
+            <x:constraints width="0px" height="0px" flex-grow="0.0" />
+            <x:styles>
+                <entry name="margin-top" value="unset" />
+            </x:styles>
+        </H2>
+    </HorizontalLayout>
+    <SplitLayout x:name="objContent">
+        <x:constraints width="100%" height="100%" flex-grow="1.0" />
+        <VerticalLayout x:name="mainLeft" defaultHorizontalComponentAlignment="com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment.STRETCH">
+            <x:constraints splitlayout-position="PRIMARY" width="100%" height="100%" />
+            <H3 x:name="h3" text="Storage 1: Export one of the clients">
+                <x:constraints width="0px" height="0px" flex-grow="0.0" />
+            </H3>
+            <Div x:name="objExportAndDownload">
+                <x:constraints width="-1px" height="-1px" flex-grow="0.0" />
+                <Button x:name="btnExport" text="Export">
+                    <x:constraints width="0px" alignment="AUTO" height="0px" flex-grow="0.0" />
+                    <x:event>click.onComponentEvent</x:event>
+                </Button>
+            </Div>
+            <Grid x:themeVariants="LUMO_COMPACT" x:name="grid">
+                <x:typeArguments>
+                    <typeArgument type="Client" />
+                </x:typeArguments>
+                <x:constraints width="-1px" height="150px" flex-grow="0.0" />
+                <x:styles>
+                    <entry name="flex-basis" value="0" />
+                </x:styles>
+                <x:columns>
+                    <column property="name" sortable="true" />
+                </x:columns>
+                <x:event>selection.selectionChange</x:event>
+            </Grid>
+            <Grid x:themeVariants="LUMO_COMPACT" x:name="gridProducts">
+                <x:typeArguments>
+                    <typeArgument type="Product" />
+                </x:typeArguments>
+                <x:constraints width="100%" height="150px" flex-grow="1.0" />
+                <x:styles>
+                    <entry name="flex-basis" value="0" />
+                </x:styles>
+                <x:columns>
+                    <column property="name" resizable="true" sortable="true" />
+                    <column property="description" resizable="true" sortable="true" />
+                    <column property="category.name" resizable="true" sortable="true" />
+                </x:columns>
+            </Grid>
+        </VerticalLayout>
+        <VerticalLayout x:name="mainRight" defaultHorizontalComponentAlignment="com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment.STRETCH">
+            <x:constraints splitlayout-position="SECONDARY" width="100%" height="100%" />
+            <H3 x:name="h32" text="Storage 2: Import a client">
+                <x:constraints width="0px" height="0px" flex-grow="0.0" />
+            </H3>
+            <Upload x:name="upload">
+                <x:constraints width="0px" height="0px" flex-grow="0.0" />
+            </Upload>
+            <Grid x:themeVariants="LUMO_COMPACT" x:name="grid2">
+                <x:typeArguments>
+                    <typeArgument type="Client" />
+                </x:typeArguments>
+                <x:constraints width="100%" height="150px" flex-grow="1.0" />
+                <x:styles>
+                    <entry name="flex-basis" value="0" />
+                </x:styles>
+                <x:columns>
+                    <column property="name" sortable="true" />
+                </x:columns>
+                <x:event>selection.selectionChange</x:event>
+            </Grid>
+            <Grid x:themeVariants="LUMO_COMPACT" x:name="gridProducts2">
+                <x:typeArguments>
+                    <typeArgument type="Product" />
+                </x:typeArguments>
+                <x:constraints width="100%" height="150px" flex-grow="1.0" />
+                <x:styles>
+                    <entry name="flex-basis" value="0" />
+                </x:styles>
+                <x:columns>
+                    <column property="name" resizable="true" sortable="true" />
+                    <column property="description" resizable="true" sortable="true" />
+                    <column property="category.name" resizable="true" sortable="true" />
+                </x:columns>
+            </Grid>
+        </VerticalLayout>
+    </SplitLayout>
+</VerticalLayout>
