@@ -71,9 +71,16 @@
             <H3 x:name="h32" text="Storage 2: Import a client">
                 <x:constraints width="0px" height="0px" flex-grow="0.0" />
             </H3>
-            <Upload x:name="upload">
-                <x:constraints width="0px" height="0px" flex-grow="0.0" />
-            </Upload>
+            <HorizontalLayout x:name="horizontalLayout">
+                <x:constraints width="-1px" height="-1px" flex-grow="0.0" />
+                <Upload x:name="upload">
+                    <x:constraints width="0px" height="0px" flex-grow="1.0" />
+                </Upload>
+                <Button x:name="btnImport" text="Import" visible="false">
+                    <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    <x:event>click.onComponentEvent</x:event>
+                </Button>
+            </HorizontalLayout>
             <Grid x:themeVariants="LUMO_COMPACT" x:name="grid2">
                 <x:typeArguments>
                     <typeArgument type="Client" />

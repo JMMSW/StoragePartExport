@@ -9,27 +9,28 @@ import com.company.graphparttransfer.model.common.User;
 
 public class DataRoot
 {
+	// User are common for all clients.
 	private Set<User>   user    = new HashSet<>();
 	private Set<Client> clients = new HashSet<>();
-	
+
 	public Set<User> getUser()
 	{
 		return this.user;
 	}
-	
+
 	public void setUser(final Set<User> user)
 	{
 		this.user = user;
 	}
-	
+
 	public Set<Client> getClients()
 	{
 		return this.clients;
 	}
-	
+
 	public void setClients(final Set<Client> clients)
 	{
 		this.clients = clients;
 	}
-	
+
 }
